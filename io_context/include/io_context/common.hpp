@@ -17,6 +17,11 @@
 #ifndef IO_CONTEXT__COMMON_HPP_
 #define IO_CONTEXT__COMMON_HPP_
 
+// Auto detects _WIN32_WINNT or _WIN32_WINDOWS for ASIO
+#ifdef _WIN32
+    #include <SDKDDKVer.h>
+#endif
+
 #include <asio.hpp>
 
 #endif  // IO_CONTEXT__COMMON_HPP_
