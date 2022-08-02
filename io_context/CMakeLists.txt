@@ -38,6 +38,9 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
   src/msg_converters/std_msgs.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} "ASIO")
+if(WIN32)
+  set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+endif()
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
