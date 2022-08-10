@@ -16,6 +16,8 @@
 #ifndef SERIAL_DRIVER__SERIAL_PORT_HPP_
 #define SERIAL_DRIVER__SERIAL_PORT_HPP_
 
+#include "serial_driver/visibility_control.hpp"
+
 #include <array>
 #include <string>
 #include <vector>
@@ -163,7 +165,7 @@ private:
   StopBits m_stop_bits;
 };
 
-class SerialPort
+class SERIAL_DRIVER_PUBLIC SerialPort
 {
 public:
   /// \brief Default constructor

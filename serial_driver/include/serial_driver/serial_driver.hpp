@@ -15,6 +15,8 @@
 #ifndef SERIAL_DRIVER__SERIAL_DRIVER_HPP_
 #define SERIAL_DRIVER__SERIAL_DRIVER_HPP_
 
+#include "serial_driver/visibility_control.hpp"
+
 #include <memory>
 #include <string>
 
@@ -26,7 +28,7 @@ namespace drivers
 namespace serial_driver
 {
 
-class SerialDriver
+class SERIAL_DRIVER_PUBLIC SerialDriver
 {
 public:
   explicit SerialDriver(const IoContext & ctx);

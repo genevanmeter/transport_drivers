@@ -37,16 +37,16 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
   src/serial_driver.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} "ASIO")
-if(WIN32)
-  set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-endif()
+target_compile_definitions(${PROJECT_NAME}
+  PRIVATE SERIAL_DRIVER_BUILDING_LIBRARY)
+
 
 ament_auto_add_library(${PROJECT_NAME}_nodes SHARED
   src/serial_bridge_node.cpp
 )
-if(WIN32)
-  set_target_properties(${PROJECT_NAME}_nodes PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-endif()
+target_compile_definitions(${PROJECT_NAME}_nodes
+  PRIVATE SERIAL_DRIVER_BUILDING_LIBRARY)
+
 
 rclcpp_components_register_node(${PROJECT_NAME}_nodes
   PLUGIN "drivers::serial_driver::SerialBridgeNode"
