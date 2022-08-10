@@ -17,6 +17,8 @@
 #ifndef UDP_DRIVER__UDP_DRIVER_HPP_
 #define UDP_DRIVER__UDP_DRIVER_HPP_
 
+#include "udp_driver/visibility_control.hpp"
+
 #include <iostream>
 #include <memory>
 #include <string>
@@ -29,7 +31,7 @@ namespace drivers
 namespace udp_driver
 {
 
-class UdpDriver
+class UDP_DRIVER_PUBLIC UdpDriver
 {
 public:
   explicit UdpDriver(const IoContext & ctx);

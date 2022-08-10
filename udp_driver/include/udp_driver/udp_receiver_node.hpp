@@ -37,7 +37,7 @@ namespace udp_driver
 {
 
 /// \brief UdpReceiverNode class which can receive UDP datagrams
-class UdpReceiverNode final
+class UDP_DRIVER_PUBLIC UdpReceiverNode final
   : public lc::LifecycleNode
 {
 public:

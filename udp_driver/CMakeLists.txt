@@ -38,9 +38,8 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
   src/udp_driver.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} "ASIO")
-if(WIN32)
-  set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-endif()
+target_compile_definitions(${PROJECT_NAME}
+  PRIVATE UDP_DRIVER_BUILDING_LIBRARY)
 
 ament_auto_add_library(${PROJECT_NAME}_nodes SHARED
   src/udp_receiver_node.cpp
@@ -48,9 +47,8 @@ ament_auto_add_library(${PROJECT_NAME}_nodes SHARED
 )
 ament_target_dependencies(${PROJECT_NAME}_nodes "ASIO")
 target_link_libraries(${PROJECT_NAME}_nodes ${PROJECT_NAME})
-if(WIN32)
-  set_target_properties(${PROJECT_NAME}_nodes PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-endif()
+target_compile_definitions(${PROJECT_NAME}_nodes
+  PRIVATE UDP_DRIVER_BUILDING_LIBRARY)
 
 rclcpp_components_register_node(${PROJECT_NAME}_nodes
   PLUGIN "drivers::udp_driver::UdpReceiverNode"

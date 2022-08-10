@@ -36,7 +36,7 @@ namespace udp_driver
 {
 
 /// \brief UdpSenderNode class which can send UDP datagrams
-class UdpSenderNode final
+class UDP_DRIVER_PUBLIC UdpSenderNode final
   : public lc::LifecycleNode
 {
 public:

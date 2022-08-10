@@ -17,6 +17,8 @@
 #ifndef UDP_DRIVER__UDP_SOCKET_HPP_
 #define UDP_DRIVER__UDP_SOCKET_HPP_
 
+#include "udp_driver/visibility_control.hpp"
+
 #include <array>
 #include <string>
 #include <vector>
@@ -35,7 +37,7 @@ namespace udp_driver
 
 using Functor = std::function<void (const std::vector<uint8_t> &)>;
 
-class UdpSocket
+class UDP_DRIVER_PUBLIC UdpSocket
 {
 public:
   UdpSocket(
